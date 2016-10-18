@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="isPermutationOf('yXP','XYZ')">
+		<div>
+			<p>Code to test if one string is a permutation of the other</p>
+		</div>
+		
+		<script type="text/javascript">
+			function doSort(s){
+				var content = s.split('');
+				return content.sort();
+			}
+			function isPermutationOf(x,y){
+				var a = x.toUpperCase();
+				var b = y.toUpperCase();
+				if(a.length != b.length){
+					console.log("both strings are of diff lengths");
+					return false;
+				}
+				if(doSort(a).toString() == doSort(b).toString()){
+					console.log("YES");
+				}
+				else{
+					console.log("NO");
+				}
+			}
+			
+		</script>
+	</body>
+</html>
+ 

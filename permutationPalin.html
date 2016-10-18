@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="permPalin('TTTTTTTT tttttox')">
+		<div>
+			<p>Code to check if a string is the permutation of a Palindrome.</p>
+		</div>
+		
+		<script type="text/javascript">
+			function permPalin(str){
+				var spaceCount = 0;
+				console.log("ORIGINAL STRING:" +str);
+				str = str.toLowerCase();
+				var arrCopy = str.split('');
+				var arr = str.split('');
+				console.log(arr);
+				var sortedStr = arr.sort();
+				console.log(sortedStr);
+
+				var i=0;
+				var obj = [];
+				var k=0;
+				while(i<sortedStr.length){
+					var count=1;
+					for (var j=i+1; j<sortedStr.length; j++){ 
+							if(sortedStr[i] == sortedStr[j]){
+								count++;
+						}
+						else{
+							break;
+						}
+					}
+
+					//console.log("Character " + sortedStr[i] + " occurs " + count + "times.");
+					obj[k] = {theChar : sortedStr[i], freq : count};
+					//console.log(obj[k]);
+					k++;
+					i = i+count;
+					
+				}
+				console.log(obj);
+				var oddFreqCount = 0;
+					for(var x=0; x<obj.length; x++){
+						if((obj[x].theChar != ' ') && (obj[x].freq%2 != 0)){
+							oddFreqCount++;
+						}
+
+					}
+					if (oddFreqCount >1){
+						console.log("FALSE: not a permuation of a palindrome");
+					}
+					else{
+						console.log("TRUE: it is permuation of a palindrome");
+					}
+
+			}
+			
+		</script>
+	</body>
+</html>
+ 

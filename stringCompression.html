@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="strCompress('abbbbcdac')">
+		<div>
+			<p>Code to perform compression of string using counts of repeated character sequences</p>
+		</div>
+		
+		<script type="text/javascript">
+			function strCompress(str){
+				console.log("Original string: " + str);	
+				var finalStr = "";
+					var count=0;
+					for (var j=0; j<str.length; j++){ 
+								count++;
+								if( j+1 >= str.length || str.charAt(j) != str.charAt(j+1)){
+									finalStr = finalStr.concat(str[j],count);
+									count = 0;
+						}
+					}
+				console.log("Compressed string: " + finalStr);
+				return (finalStr.length >= str.length) ? str : finalStr;
+				//var ret = (finalStr.length >= str.length) ? str : finalStr;
+				//console.log(ret);
+			}
+		</script>
+	</body>
+</html>

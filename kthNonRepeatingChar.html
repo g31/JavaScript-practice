@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="kthNonRep('Alxaaaalkzxp',2)">
+		<div>
+			<p>Code to find the kth non-repeating character in a string</p>
+		</div>
+		
+		<script type="text/javascript">
+			function kthNonRep(str1,k){
+				console.log('String is: ' + str1 + ' and k = ' + k);
+				str = str1.toLowerCase();
+				var nonRepCount =0;
+				var pos = [];
+				var index =0;
+				for(var i=0; i<str.length;i++){
+					var rep = false;
+					for(var j=0;j<str.length;j++){
+						if((i!=j) && (str.charAt(i) == str.charAt(j))){
+							//it is repeating
+							rep = true;
+						}
+					}
+					if(!rep){
+						nonRepCount++;
+						console.log(nonRepCount);
+						pos[index] =i;
+						index++;
+					}
+
+				}
+				if(k > nonRepCount){
+					console.log('less than ' + k + ' non-repeating characters in the input string')
+				}
+				else{
+					var kthNonRepPos = pos[k-1];
+					console.log(k + 'th non-repeating character is ' + str1.charAt(kthNonRepPos));
+				}
+			}			
+		</script>
+	</body>
+</html>
+ 

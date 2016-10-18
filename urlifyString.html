@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="urlifyString('Mr John Smith   ', 13)">
+		<div>
+			<p>Code to URlify a string (given true length)</p>
+		</div>
+		
+		<script type="text/javascript">
+			function urlifyString(str, trueLen){
+				var val; var spaceCount = 0;
+				var strArr = str.split('');
+				console.log(strArr);
+				for(var i = 0; i < trueLen; i++){
+					val = strArr[i];
+					if(val == ' '){
+						spaceCount++;
+					}
+				}
+				if (trueLen < strArr.length){
+					strArr[trueLen] = '\0';
+				}
+
+				console.log(strArr);
+				var index = trueLen + spaceCount*2;
+				for(var j = trueLen-1; j>=0; j--){
+					if (strArr[j] == ' '){
+						strArr[index-1] = '0';
+						strArr[index-2] = '2';
+						strArr[index-3] = '%';
+						index = index-3;
+					}
+					else{
+						strArr[index-1] = strArr[j];
+						index--;
+					}
+				}
+				var finalStr = strArr.join('');
+				console.log(finalStr);
+			}
+			
+		</script>
+	</body>
+</html>

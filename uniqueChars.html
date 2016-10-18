@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="isUniqueChars('atri')">
+		<div>
+			<p>Code to test if all  characters in a string are unique</p>
+		</div>
+		
+		<script type="text/javascript">
+			function isUniqueChars(str){
+				if(str.length > 128){
+					console.log("All characters of this string are NOT unique \n");
+					return false;
+				}
+
+				var char_set = new Array(128);
+				for(var i =0; i<str.length; i++){
+					var val = str.charAt(i);
+					if(char_set[val]){
+						console.log("All characters of this string are NOT unique \n");
+						return false;
+					}
+						char_set[val] = true;
+				}
+				console.log("All characters of this string ARE unique \n");
+				return true;
+			}
+			
+		</script>
+	</body>
+</html>
+ 

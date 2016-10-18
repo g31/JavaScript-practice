@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="revArrSplChars('a!!!b.c.d,e\'f,')">
+		<div>
+			<h1>Code to reverse an array without affecting its special chars</h1>
+		</div>
+		
+		<script type="text/javascript">
+			function revArrSplChars(str){
+				console.log("Original string: " + str);
+				var str = str.split('');
+				var len = str.length;
+				var left = 0; var right = len - 1;
+				var temp;
+				while(left < right){
+					if(!(/^[a-zA-Z]$/.test(str[left]))){
+						left++;
+					}
+					else if(!(/^[a-zA-Z]$/.test(str[right]))){
+						right--;
+					}
+					else{
+						//swap both alphabets
+						temp = str[left];
+						str[left] = str[right];
+						str[right] = temp;
+						left++;
+						right--;
+					}
+				}
+				console.log("Reverse string: " + str.join(''));
+			}
+		</script>
+	</body>
+</html>
+ 

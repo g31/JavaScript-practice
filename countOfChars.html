@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="charFrequency('abcdaabef')">
+		<div>
+			<p>Code to find frequency of characters in a string</p>
+		</div>
+		
+		<script type="text/javascript">
+			function charFrequency(str){
+				var arr = str.split('');
+				console.log(arr);
+				var sortedStr = arr.sort();
+				console.log(sortedStr);		
+				var i=0;
+				while(i<sortedStr.length){
+					var count=1;
+					for (var j=i+1; j<sortedStr.length; j++){ 
+							if(sortedStr[i] == sortedStr[j]){
+								count++;
+						}
+						else{
+							break;
+						}
+					}
+
+					console.log("Character " + sortedStr[i] + " occurs " + count + "times.");
+					i = i+count;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

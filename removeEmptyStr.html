@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="removeEmpty(['banana','guava','orange'])">
+		<div>
+			<h1>Code to remove empty string from an array of strings</h1>
+		</div>
+		
+		<script type="text/javascript">
+			function removeEmpty(arr){
+				
+				console.log(arr.length);
+
+
+
+
+
+
+				for(var i =0; i<arr.length;i++){
+					if (arr[i] == ''){
+						arr.splice(i,1);
+						//if (i>0) {i--};
+						i=0;
+						console.log(arr);
+					}
+				}
+				console.log(arr);
+				console.log(arr.length); 		
+			}
+		</script>
+	</body>
+</html>
+ 

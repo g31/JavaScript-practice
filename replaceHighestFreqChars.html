@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS practise 1</title>
+	</head>
+	<body onload="charFrequency('gayt ggt')">
+		<div>
+			<p>Code to replace all occurrences of first two highest frequency characters in a string to another character.</p>
+		</div>
+		
+		<script type="text/javascript">
+			function charFrequency(str){
+				console.log("ORIGINAL STRING:" +str);
+				var arrCopy = str.split('');
+				var arr = str.split('');
+				console.log(arr);
+				var sortedStr = arr.sort();
+				console.log(sortedStr);		
+				var i=0; var high1,high2;
+				var obj = [];
+				var k=0;
+				while(i<sortedStr.length){
+					var count=1;
+					for (var j=i+1; j<sortedStr.length; j++){ 
+							if(sortedStr[i] == sortedStr[j]){
+								count++;
+						}
+						else{
+							break;
+						}
+					}
+
+					//console.log("Character " + sortedStr[i] + " occurs " + count + "times.");
+					obj[k] = {theChar : sortedStr[i], freq : count};
+					//console.log(obj[k]);
+					k++;
+					i = i+count;
+					
+				}
+				console.log(obj);
+				var finalArr = obj.sort(function(a,b){
+					return b.freq-a.freq;
+				});
+				console.log("the char having the highest freq is: " + finalArr[0].theChar + "; Count = " + finalArr[0].freq);
+				console.log("the char having 2nd highest freq is: " + finalArr[1].theChar + "; Count = " + finalArr[1].freq);
+
+				for(var l =0; l<arrCopy.length;l++){
+					if((arrCopy[l] == finalArr[0].theChar) || (arrCopy[l] == finalArr[1].theChar)){
+						arrCopy[l] ='x';
+					}
+				}
+				console.log ("FINAL STRING:" + arrCopy.join(''));
+
+			}
+			
+		</script>
+	</body>
+</html>
+ 
